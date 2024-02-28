@@ -11,7 +11,7 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="bg-gray-100 text-neutral-200 flex flex-col justify-center items-center w-screen h-screen overflow-hidden">
+        <div className="bg-neutral-100 text-neutral-200 flex flex-col justify-center items-center w-screen h-screen overflow-hidden">
             <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 p-10 flex flex-col gap-10 ">
 
                 <div className="flex justify-between items-center">
