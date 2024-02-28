@@ -43,23 +43,23 @@ export default function ProfilePage() {
 
     return (
         <div className='h-screen w-screen flex justify-center'>
-            <div className='flex h-screen w-full lg:w-5/6 max-w-5xl  overflow-hidden bg-neutral-400'>
+            <div className='flex h-screen w-full lg:w-5/6 max-w-5xl  overflow-hidden bg-neutral-800'>
                 <SideNavBar />
-                <div className='bg-neutral-700 text-neutral-100 max-h-full overflow-auto flex-grow md:m-10 p-10 flex flex-col gap-5 justify-center'>
+                <div className='bg-neutral-800 text-neutral-100 border-2 border-teal-100 rounded-md max-h-full overflow-auto flex-grow md:m-10 p-10 flex flex-col gap-5 justify-center'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex justify-start sm:gap-10'>
                             <div className='flex flex-col gap-2 flex-grow'>
                                 <div>First Name</div>
                                 <input readOnly={!editing} value={fname}
                                     onChange={(e) => setFname(e.target.value)}
-                                    className='outline-none focus:bg-neutral-600 bg-neutral-800 p-2'
+                                    className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                                 ></input>
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <div>Last Name</div>
                                 <input readOnly={!editing} value={lname}
                                     onChange={(e) => setLname(e.target.value)}
-                                    className='outline-none focus:bg-neutral-600 bg-neutral-800 p-2'
+                                    className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                                 ></input>
                             </div>
 
@@ -70,7 +70,7 @@ export default function ProfilePage() {
                         <div>Institution ID Number</div>
                         <input readOnly={!editing} value={iid}
                             onChange={e => setIid(e.target.value)}
-                            className='outline-none focus:bg-neutral-600 bg-neutral-800 p-2'
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                         ></input>
                     </div>
 
@@ -78,14 +78,14 @@ export default function ProfilePage() {
                         <div>Email Address</div>
                         <input readOnly={!editing} value={email}
                             onChange={e => setEmail(e.target.value)}
-                            className='outline-none focus:bg-neutral-600 bg-neutral-800 p-2'
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                         ></input>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <div>Phone Number</div>
                         <input readOnly={!editing} value={phone}
                             onChange={e => setPhone(e.target.value)}
-                            className='outline-none focus:bg-neutral-600 bg-neutral-800 p-2'
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                         ></input>
                     </div>
                     <div className='flex justify-end gap-10'>
