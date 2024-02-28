@@ -6,19 +6,35 @@ import './index.css'
 import LoginPage from './components/login/LoginPage'
 import HomePage from './components/home/HomePage'
 import SignupPage from './components/signup/SignupPage'
+import ProfilePage from './components/profile/ProfilePage'
+import ErrorPage from './components/ErrorPage'
 
 const router = createBrowserRouter([
   {
-    path:'/login',
-    element:<LoginPage/>
+    path: '/login',
+    element: <LoginPage />
   },
   {
-    path:'/home',
-    element:<HomePage/>
+    path: '/home',
+    element: <HomePage />
   },
   {
-    path:'/signup',
-    element:<SignupPage/>
+    path: '/signup',
+    element: <SignupPage />
+  },
+  {
+    path: '/profile/',
+    children:[
+      {
+        path:'',
+        element:<ErrorPage/>
+      },
+      {
+        path:':userid',
+        element:<ProfilePage/>
+      }
+
+    ]
   },
 ])
 
