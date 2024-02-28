@@ -29,34 +29,45 @@ export default function SignupPage() {
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="institution_id_num">Institution ID Number</label>
-                    <input className="bg-neutral-800 p-2  outline-none border border-neutral-600 focus:border-neutral-700" 
+                    <input 
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                     onChange={e => setiid(e.target.value)} id="institution_id_num" type="text" />
                 </div>
 
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="passwd">Password</label>
-                    <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)} className="bg-neutral-800 p-2 outline-none border border-neutral-600 focus:border-neutral-700" type="password" />
+                    <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)} 
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                    type="password" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="fname">First Name</label>
-                    <input className="bg-neutral-800 p-2  outline-none border border-neutral-600 focus:border-neutral-700" onChange={e => setFname(e.target.value)} id="fname" type="text" />
+                    <input 
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                    onChange={e => setFname(e.target.value)} id="fname" type="text" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="lname">Last Name</label>
-                    <input className="bg-neutral-800 p-2  outline-none border border-neutral-600 focus:border-neutral-700" id='lname' onChange={e => setLname(e.target.value)} type="text" />
+                    <input 
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                    id='lname' onChange={e => setLname(e.target.value)} type="text" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="email" >Email Address</label>
-                    <input className="bg-neutral-800 p-2  outline-none border border-neutral-600 focus:border-neutral-700" id="email" onChange={e => setEmail(e.target.value)} type="email" />
+                    <input 
+                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                    id="email" onChange={e => setEmail(e.target.value)} type="email" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor='phone'>Phone Number</label>
-                    <input className="bg-neutral-800 p-2 remove-arrow  outline-none border border-neutral-600 focus:border-neutral-700" id="phone" onChange={e => setPhone(e.target.value)} type="number" />
+                    <input 
+                            className='remove-arrow outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                    id="phone" onChange={e => setPhone(e.target.value)} type="number" />
                 </div>
 
                 <div className="flex w-full ">
