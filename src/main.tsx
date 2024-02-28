@@ -7,7 +7,7 @@ import LoginPage from './components/login/LoginPage'
 import HomePage from './components/home/HomePage'
 import SignupPage from './components/signup/SignupPage'
 import ProfilePage from './components/profile/ProfilePage'
-import ErrorPage from './components/ErrorPage'
+import ErrorPage from './components/errors/ErrorPage'
 
 const router = createBrowserRouter([
   {
@@ -24,14 +24,14 @@ const router = createBrowserRouter([
   },
   {
     path: '/profile/',
-    children:[
+    children: [
       {
-        path:'',
-        element:<ErrorPage/>
+        path: '',
+        element: <ErrorPage />
       },
       {
-        path:':userid',
-        element:<ProfilePage/>
+        path: ':userid',
+        element: <ProfilePage />
       }
 
     ]
