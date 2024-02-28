@@ -8,22 +8,23 @@ import HomePage from './components/home/HomePage'
 import SignupPage from './components/signup/SignupPage'
 import ProfilePage from './components/profile/ProfilePage'
 import ErrorPage from './components/errors/ErrorPage'
+import BookDetailPage from './components/book/BookDetailPage'
 
 const router = createBrowserRouter([
   {
-    path: '/login',
+    path: 'login',
     element: <LoginPage />
   },
   {
-    path: '/home',
+    path: 'home',
     element: <HomePage />
   },
   {
-    path: '/signup',
+    path: 'signup',
     element: <SignupPage />
   },
   {
-    path: '/profile/',
+    path: 'profile',
     children: [
       {
         path: '',
@@ -34,6 +35,19 @@ const router = createBrowserRouter([
         element: <ProfilePage />
       }
 
+    ]
+  },
+  {
+    path: 'book',
+    children: [
+      {
+        path: '',
+        element: <ErrorPage />
+      },
+      {
+        path: ':bookid',
+        element: <BookDetailPage />
+      },
     ]
   },
 ])
