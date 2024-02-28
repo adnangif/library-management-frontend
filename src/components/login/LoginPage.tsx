@@ -24,7 +24,7 @@ export default function LoginPage() {
                     <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)} className="bg-neutral-800 p-2 outline-none border border-neutral-600 focus:border-neutral-700" type="password" />
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex justify-end">
                     <input type="submit" className="bg-neutral-600 px-10 py-2 cursor-pointer hover:bg-neutral-700" value={'Login'} />
                 </div>
             </form>

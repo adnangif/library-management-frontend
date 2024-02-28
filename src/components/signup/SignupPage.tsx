@@ -63,7 +63,7 @@ export default function SignupPage() {
                     <input className="w-4" id="maintainer" checked={maintainer} onChange={() => setMaintainer(!maintainer)} type="checkbox" />
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex justify-end">
                     <input type="submit" className="bg-neutral-600 px-10 py-2 cursor-pointer hover:bg-neutral-700" value='Signup' />
                 </div>
 
