@@ -2,6 +2,7 @@ import { useState } from "react"
 
 export default function SignupPage() {
     const [iid, setiid] = useState('')
+    const [password, setPassword] = useState('')
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('')
     const [email, setEmail] = useState('')
@@ -19,6 +20,7 @@ export default function SignupPage() {
         console.log(email)
         console.log(phone)
         console.log(maintainer)
+        console.log(password)
     }
 
     return (
@@ -28,6 +30,12 @@ export default function SignupPage() {
                 <div className="flex justify-between gap-5">
                     <label htmlFor="institution_id_num">Institution ID Number</label>
                     <input className="bg-neutral-800 p-2  outline-none border border-neutral-600 focus:border-neutral-700" onChange={e => setiid(e.target.value)} id="institution_id_num" type="text" />
+                </div>
+
+
+                <div className="flex justify-between gap-10 items-center">
+                    <label htmlFor="passwd">Password</label>
+                    <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)} className="bg-neutral-800 p-2 outline-none border border-neutral-600 focus:border-neutral-700" type="password" />
                 </div>
 
                 <div className="flex justify-between">
