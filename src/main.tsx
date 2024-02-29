@@ -9,6 +9,7 @@ import SignupPage from './components/signup/SignupPage'
 import ProfilePage from './components/profile/ProfilePage'
 import ErrorPage from './components/errors/ErrorPage'
 import BookDetailPage from './components/book/BookDetailPage'
+import SearchPage from './components/search/SearchPage'
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
         element: <BookDetailPage />
       },
     ]
+  },
+  {
+    path: 'search',
+    element: <SearchPage />
   },
 ])
 
