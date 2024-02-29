@@ -4,12 +4,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import './index.css'
 import LoginPage from './components/login/LoginPage'
-import HomePage from './components/home/HomePage'
 import SignupPage from './components/signup/SignupPage'
 import ProfilePage from './components/profile/ProfilePage'
 import ErrorPage from './components/errors/ErrorPage'
 import BookDetailPage from './components/book/BookDetailPage'
 import SearchPage from './components/search/SearchPage'
+import BorrowListPage from './components/borrows/BorrowListPage'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'home',
-    element: <HomePage />
+    element: <BorrowListPage/>
   },
   {
     path: 'signup',
