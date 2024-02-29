@@ -1,8 +1,6 @@
 // import { useParams } from 'react-router-dom';
-// import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import BasePage from '../BasePage';
-// import { useEffect, useState } from 'react';
 
 export default function BookDetailPage() {
     const [title, setTitle] = useState('')
