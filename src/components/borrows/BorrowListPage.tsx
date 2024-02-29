@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SideNavBar from "../sidnav/SideNavBar";
+import BasePage from "../BasePage";
 
 export default function BorrowListPage() {
 
@@ -34,31 +34,25 @@ export default function BorrowListPage() {
 
 
     return (
-        <div className='h-screen w-screen flex justify-center'>
-            <div className='flex h-screen w-full lg:w-5/6 max-w-5xl  overflow-hidden bg-teal-950'>
-                <SideNavBar />
-                <div className='bg-neutral-800 text-neutral-100 max-h-full overflow-auto flex flex-col gap-5 flex-grow  p-5  justify-start items-center'>
-                    <div className="w-full flex justify-center">
-                        <div className="font-bold text-lg">
-                            Borrowed Books
-                        </div>
-                    </div>
-
-                    <div className="flex-grow w-full flex flex-col gap-2">
-                        {
-                            books.map(book => (
-                                <div className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-2 m-1">
-                                    <div>{book.title}</div>
-                                    <div>By {book.author}</div>
-                                    <div>{book.edition} Edition</div>
-                                </div>
-                            ))
-                        }
-
-                    </div>
-
+        <BasePage>
+            <div className="w-full flex justify-center">
+                <div className="font-bold text-lg">
+                    Borrowed Books
                 </div>
             </div>
-        </div>
+
+            <div className="flex-grow w-full flex flex-col gap-2">
+                {
+                    books.map(book => (
+                        <div className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-2 m-1">
+                            <div>{book.title}</div>
+                            <div>By {book.author}</div>
+                            <div>{book.edition} Edition</div>
+                        </div>
+                    ))
+                }
+
+            </div>
+        </BasePage>
     )
 }
