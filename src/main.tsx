@@ -10,6 +10,8 @@ import ErrorPage from './components/errors/ErrorPage'
 import BookDetailPage from './components/book/BookDetailPage'
 import SearchPage from './components/search/SearchPage'
 import BorrowListPage from './components/borrows/BorrowListPage'
+import CategoryMainPage from './components/categories/CategoryMainPage'
+import CategorySubPage from './components/categories/CategorySubPage'
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,19 @@ const router = createBrowserRouter([
   {
     path: 'search',
     element: <SearchPage />
+  },
+  {
+    path: 'category',
+    children:[
+      {
+        path:'',
+        element: <CategoryMainPage />,
+      },
+      {
+        path:':catid',
+        element: <CategorySubPage />
+      }
+    ]
   },
 ])
 
