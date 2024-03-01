@@ -1,7 +1,7 @@
 import SideNavBar from "./sidnav/SideNavBar";
 
 export default function BasePage({ children }: {
-    children: JSX.Element[]
+    children: JSX.Element[] | JSX.Element
 }) {
     return (
         <div className='h-screen w-screen flex justify-center'>

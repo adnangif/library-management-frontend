@@ -12,6 +12,7 @@ import SearchPage from './components/search/SearchPage'
 import BorrowListPage from './components/borrows/BorrowListPage'
 import CategoryMainPage from './components/categories/CategoryMainPage'
 import CategorySubPage from './components/categories/CategorySubPage'
+import OrderDetailPage from './components/order/OrderDetailPage'
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,19 @@ const router = createBrowserRouter([
       {
         path:':catid',
         element: <CategorySubPage />
+      }
+    ]
+  },
+  {
+    path: 'orders',
+    children:[
+      {
+        path:'',
+        element: <ErrorPage />,
+      },
+      {
+        path:':orderid',
+        element: <OrderDetailPage />
       }
     ]
   },
