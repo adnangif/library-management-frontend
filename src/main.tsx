@@ -13,6 +13,7 @@ import BorrowListPage from './components/borrows/BorrowListPage'
 import CategoryMainPage from './components/categories/CategoryMainPage'
 import CategorySubPage from './components/categories/CategorySubPage'
 import OrderDetailPage from './components/order/OrderDetailPage'
+import OrderListPage from './components/order/OrderListPage'
 
 const router = createBrowserRouter([
   {
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:'',
-        element: <ErrorPage />,
+        element: <OrderListPage />,
       },
       {
         path:':orderid',
