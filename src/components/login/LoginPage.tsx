@@ -12,10 +12,10 @@ export default function LoginPage() {
 
     return (
         <div className="bg-neutral-100 text-neutral-200 flex flex-col justify-center items-center w-screen h-screen overflow-hidden">
-            <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 px-16 p-10 flex flex-col gap-10 ">
+            <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 rounded-sm px-16 p-10 flex flex-col gap-10 ">
 
                 <div className="flex justify-between items-center">
-                    <label htmlFor="userid">UserID</label>
+                    <label htmlFor="userid">Institution ID</label>
                     <input minLength={4} name="userid" id="userid" onChange={(e) => setUserId(e.target.value)} placeholder="ex. 216443"
                         className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                         type="text" />

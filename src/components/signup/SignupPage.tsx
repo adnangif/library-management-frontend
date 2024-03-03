@@ -25,7 +25,7 @@ export default function SignupPage() {
 
     return (
         <div className="flex flex-col text-neutral-200 justify-center items-center h-screen w-screen overflow-hidden bg-neutral-100">
-            <form onSubmit={handleSubmit} className="bg-neutral-800 p-10 md:w-1/2 flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="bg-neutral-800 rounded-sm p-10 md:w-1/2 flex flex-col gap-4">
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="institution_id_num">Institution ID Number</label>
