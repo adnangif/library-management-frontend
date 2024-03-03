@@ -1,19 +1,43 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import CSRFToken from "../csrf";
 export default function LoginPage() {
     const [UserID, setUserId] = useState("")
     const [password, setPassword] = useState("")
 
+
+
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log(UserID)
-        console.log(password)
+
+        fetch('http://localhost:8000/api/login/',{
+            method:'POST',
+            mode:'cors',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                'id': UserID,
+                'pass': password,
+            })
+        })  
+        .then(response =>{
+            if(response.ok) {
+                return response.text()
+            }
+        })
+        .then(data =>{
+            console.log(data)
+        })
+
+
+        // console.log(UserID)
+        // console.log(password)
     }
 
     return (
         <div className="bg-neutral-100 text-neutral-200 flex flex-col justify-center items-center w-screen h-screen overflow-hidden">
             <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 rounded-sm px-16 p-10 flex flex-col gap-10 ">
-
+                <CSRFToken />
                 <div className="flex justify-between items-center">
                     <label htmlFor="userid">Institution ID</label>
                     <input minLength={4} name="userid" id="userid" onChange={(e) => setUserId(e.target.value)} placeholder="ex. 216443"
