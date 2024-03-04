@@ -24,7 +24,7 @@ export default function SignupPage() {
         console.log(maintainer)
         console.log(password)
 
-        fetch('http://localhost:8000/api/login/', {
+        fetch('http://localhost:8000/api/signup/', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -46,7 +46,7 @@ export default function SignupPage() {
                 }
             })
             .then(data => {
-                console.log(data)
+                alert(data)
             })
     }
 
@@ -57,8 +57,8 @@ export default function SignupPage() {
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="institution_id_num">Institution ID Number</label>
                     <input
-                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                        onChange={e => setiid(e.target.value)} id="institution_id_num" type="text" />
+                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2 remove-arrow'
+                        onChange={e => setiid(e.target.value)} id="institution_id_num" type="number" />
                 </div>
 
 
