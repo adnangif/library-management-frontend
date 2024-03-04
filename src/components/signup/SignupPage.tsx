@@ -21,6 +21,31 @@ export default function SignupPage() {
         console.log(phone)
         console.log(maintainer)
         console.log(password)
+
+        fetch('http://localhost:8000/api/login/',{
+            method:'POST',
+            mode:'cors',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                'iid': iid,
+                'fname': fname,
+                'lname':lname,
+                'email':email,
+                'phone':phone,
+                'maintainer':maintainer,
+                'password':password,
+            })
+        })  
+        .then(response =>{
+            if(response.ok) {
+                return response.text()
+            }
+        })
+        .then(data =>{
+            console.log(data)
+        })
     }
 
     return (
