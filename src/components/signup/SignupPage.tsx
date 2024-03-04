@@ -9,6 +9,8 @@ export default function SignupPage() {
     const [phone, setPhone] = useState('')
     const [maintainer, setMaintainer] = useState(false)
 
+    const [createdUser, setCreatedUser] = useState(0)
+
 
 
 
@@ -22,30 +24,30 @@ export default function SignupPage() {
         console.log(maintainer)
         console.log(password)
 
-        fetch('http://localhost:8000/api/login/',{
-            method:'POST',
-            mode:'cors',
-            headers:{
+        fetch('http://localhost:8000/api/login/', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
                 'Content-Type': 'application/json',
             },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 'iid': iid,
                 'fname': fname,
-                'lname':lname,
-                'email':email,
-                'phone':phone,
-                'maintainer':maintainer,
-                'password':password,
+                'lname': lname,
+                'email': email,
+                'phone': phone,
+                'maintainer': maintainer,
+                'password': password,
             })
-        })  
-        .then(response =>{
-            if(response.ok) {
-                return response.text()
-            }
         })
-        .then(data =>{
-            console.log(data)
-        })
+            .then(response => {
+                if (response.ok) {
+                    return response.text()
+                }
+            })
+            .then(data => {
+                console.log(data)
+            })
     }
 
     return (
@@ -54,45 +56,45 @@ export default function SignupPage() {
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="institution_id_num">Institution ID Number</label>
-                    <input 
-                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                    onChange={e => setiid(e.target.value)} id="institution_id_num" type="text" />
+                    <input
+                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        onChange={e => setiid(e.target.value)} id="institution_id_num" type="text" />
                 </div>
 
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="passwd">Password</label>
-                    <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)} 
-                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                    type="password" />
+                    <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)}
+                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        type="password" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="fname">First Name</label>
-                    <input 
-                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                    onChange={e => setFname(e.target.value)} id="fname" type="text" />
+                    <input
+                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        onChange={e => setFname(e.target.value)} id="fname" type="text" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="lname">Last Name</label>
-                    <input 
-                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                    id='lname' onChange={e => setLname(e.target.value)} type="text" />
+                    <input
+                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        id='lname' onChange={e => setLname(e.target.value)} type="text" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="email" >Email Address</label>
-                    <input 
-                            className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                    id="email" onChange={e => setEmail(e.target.value)} type="email" />
+                    <input
+                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        id="email" onChange={e => setEmail(e.target.value)} type="email" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor='phone'>Phone Number</label>
-                    <input 
-                            className='remove-arrow outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
-                    id="phone" onChange={e => setPhone(e.target.value)} type="number" />
+                    <input
+                        className='remove-arrow outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        id="phone" onChange={e => setPhone(e.target.value)} type="number" />
                 </div>
 
                 <div className="flex w-full ">
@@ -106,6 +108,11 @@ export default function SignupPage() {
                     <input type="submit" className="bg-neutral-600 px-10 py-2 cursor-pointer hover:bg-neutral-700" value='Signup' />
                 </div>
 
+                {
+                    createdUser == -1 ?
+                        <div className="text-center text-red-400">Invalid information! cannot create the user</div>
+                        : <div></div>
+                }
             </form>
 
         </div>
