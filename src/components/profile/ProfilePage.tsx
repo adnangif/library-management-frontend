@@ -1,8 +1,17 @@
 // import { useParams } from 'react-router-dom';
+import { Navigate, redirect} from 'react-router-dom';
 import SideNavBar from '../sidnav/SideNavBar';
 import { useEffect, useState } from 'react';
+import { getGlobalUser, isAuthenticated } from '../../userManagement';
 
 export default function ProfilePage() {
+    if (!getGlobalUser()) {
+        return (
+            <Navigate to='/login' replace />
+        )
+    }
+
+
     const [editing, setEditing] = useState(false)
     const [fname, setFname] = useState('')
     const [lname, setLname] = useState('')
@@ -10,7 +19,11 @@ export default function ProfilePage() {
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
 
+
     useEffect(() => {
+        if (isAuthenticated() == false) {
+            redirect('/login')
+        }
         const user = {
             fname: 'alibaba',
             lname: 'rock',

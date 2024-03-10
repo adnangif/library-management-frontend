@@ -1,8 +1,23 @@
-import React, { useEffect, useState } from "react";
-import CSRFToken from "../csrf";
+import React, { useState } from "react";
+import { getGlobalUser, setGlobalUser } from "../../userManagement";
+import { Navigate, useNavigate } from "react-router-dom";
+
 export default function LoginPage() {
+
+    if(getGlobalUser()){
+        return (
+            <Navigate to='/home' />
+        )
+    }
+
+
+
     const [UserID, setUserId] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState(false)
+
+    const nav = useNavigate()
+
 
 
 
@@ -16,28 +31,36 @@ export default function LoginPage() {
                 'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                'id': UserID,
-                'pass': password,
+                'iid': UserID,
+                'password': password,
             })
         })  
         .then(response =>{
-            if(response.ok) {
-                return response.text()
+            if(response.status == 202) {
+                console.log("Login complete")
             }
+            else if(response.status == 400){
+                setError(true)
+            }
+            return response.json()
         })
         .then(data =>{
-            console.log(data)
+            if(data['info']){
+                const cdata = JSON.parse(data['info'])
+                console.log(cdata)
+                setGlobalUser(cdata[0])
+
+                setTimeout(()=>{
+                    nav('/home')
+
+                },1000)
+            }
         })
-
-
-        // console.log(UserID)
-        // console.log(password)
     }
 
     return (
         <div className="bg-neutral-100 text-neutral-200 flex flex-col justify-center items-center w-screen h-screen overflow-hidden">
             <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 rounded-sm px-16 p-10 flex flex-col gap-10 ">
-                <CSRFToken />
                 <div className="flex justify-between items-center">
                     <label htmlFor="userid">Institution ID</label>
                     <input minLength={4} name="userid" id="userid" onChange={(e) => setUserId(e.target.value)} placeholder="ex. 216443"
@@ -52,6 +75,11 @@ export default function LoginPage() {
                         type="password" />
                 </div>
 
+                {error ?
+                <div className="text-center text-red-400">Wrong institution id or Password</div>
+                :
+                <div></div>
+                }
                 <div className="flex justify-end">
                     <input type="submit"
                         className="bg-neutral-600 px-10 py-2 cursor-pointer hover:bg-neutral-700"
