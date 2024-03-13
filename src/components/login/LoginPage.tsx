@@ -46,9 +46,14 @@ export default function LoginPage() {
         })
         .then(data =>{
             if(data['info']){
-                const cdata = JSON.parse(data['info'])
-                console.log(cdata)
-                setGlobalUser(cdata[0])
+                const info = JSON.parse(data['info'])
+                const jwt_token = data['token']
+                console.log(info)
+                // console.log(jwt_token)
+
+                // setGlobalUser(info[0])
+                setGlobalUser(jwt_token)
+                console.log(getGlobalUser())
 
                 setTimeout(()=>{
                     nav('/home')
