@@ -3,12 +3,13 @@ export function getGlobalUser(){
 }
 
 export function isAuthenticated(){
-    if(localStorage.getItem('user') == null) return true
-    return false
+    if(localStorage.getItem('user') === null) return false
+    return true
 }
 
 export function clearGlobalUser(){
     localStorage.removeItem('user')
+    // localStorage.setItem('user','')
 }
 
 export function setGlobalUser(value:string){

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { getGlobalUser, setGlobalUser } from "../../userManagement";
+import { getGlobalUser, isAuthenticated, setGlobalUser } from "../../userManagement";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
 
-    if(getGlobalUser()){
+    if(isAuthenticated() === true){
         return (
             <Navigate to='/home' />
         )
