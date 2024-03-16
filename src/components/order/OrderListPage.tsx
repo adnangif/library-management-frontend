@@ -43,8 +43,8 @@ export default function OrderListPage() {
             <div className="text-lg font-bold">Orders</div>
             <div className="grid gap-5 w-full">
                 {
-                    orders.map((order,index) => (
-                        <button key={index} className="grid lg:grid-cols-3  place-content-start sm:grid-cols-2 w-full border hover:bg-neutral-700  rounded-lg p-2">
+                    orders.map(order => (
+                        <button className="grid lg:grid-cols-3  place-content-start sm:grid-cols-2 w-full border hover:bg-neutral-700  rounded-lg p-2">
                             <div className="flex gap-3">
                                 <div className="font-thin">OrderID</div>
                                 <div className="font-bold">{order.orderid}</div>
