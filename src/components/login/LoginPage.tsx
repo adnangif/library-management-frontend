@@ -65,18 +65,18 @@ export default function LoginPage() {
 
     return (
         <div className="bg-neutral-100 text-neutral-200 flex flex-col justify-center items-center w-screen h-screen overflow-hidden">
-            <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 rounded-sm px-16 p-10 flex flex-col gap-10 ">
+            <form method="post" onSubmit={handleSubmit} className="bg-neutral-800 rounded-lg px-16 p-10 flex flex-col gap-10 ">
                 <div className="flex justify-between items-center">
                     <label htmlFor="userid">Institution ID</label>
                     <input minLength={4} name="userid" id="userid" onChange={(e) => setUserId(e.target.value)} placeholder="ex. 216443"
-                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        className='outline-none border rounded-lg focus:bg-neutral-600 bg-neutral-800 p-2'
                         type="text" />
                 </div>
 
                 <div className="flex justify-between gap-10 items-center">
                     <label htmlFor="passwd">Password</label>
                     <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)}
-                        className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                        className='outline-none border rounded-lg focus:bg-neutral-600 bg-neutral-800 p-2'
                         type="password" />
                 </div>
 
@@ -87,7 +87,7 @@ export default function LoginPage() {
                 }
                 <div className="flex justify-end">
                     <input type="submit"
-                        className="bg-neutral-600 px-10 py-2 cursor-pointer hover:bg-neutral-700"
+                        className="bg-neutral-600 rounded-2xl px-10 py-2 cursor-pointer hover:bg-neutral-700"
                         value={'Login'} />
                 </div>
             </form>
