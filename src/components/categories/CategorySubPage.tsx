@@ -48,8 +48,8 @@ export default function SearchPage() {
 
             <div className="flex-grow w-full flex flex-col gap-2">
                 {
-                    books.map(book => (
-                        <div className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
+                    books.map((book,index) => (
+                        <div key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
                             <div>{book.title}</div>
                             <div>By {book.author}</div>
                             <div>{book.edition} Edition</div>
