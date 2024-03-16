@@ -94,8 +94,8 @@ export default function () {
             <div className="font-bold text-lg">Ordered Books</div>
             <div className="flex-grow w-full flex flex-col gap-2">
                 {
-                    orderedBooks.map(book => (
-                        <div className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold grid lg:grid-cols-3 sm:grid-cols-2  gap-2 p-1 m-1">
+                    orderedBooks.map((book,index) => (
+                        <div key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold grid lg:grid-cols-3 sm:grid-cols-2  gap-2 p-1 m-1">
                             <div>{book.title}</div>
                             <div>By {book.author}</div>
                             <div>{book.edition} Edition</div>
