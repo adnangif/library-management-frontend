@@ -6,12 +6,12 @@ import { CiLogout } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { clearGlobalUser } from "../../userManagement";
 import {useNavigate } from "react-router-dom";
-import { useRef } from "react";
+// import { useRef } from "react";
 
 
 export default function SideNavBar() {
 
-    const profBtnRef = useRef(null)
+    // const profBtnRef = useRef(null)
 
     const nav = useNavigate()
 
