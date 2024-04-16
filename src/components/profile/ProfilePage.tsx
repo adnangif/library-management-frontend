@@ -40,17 +40,17 @@ export default function ProfilePage() {
     }, [])
 
 
-    function handleSaveOrEdit() {
-        if (editing) {
-            console.log("Update the information about user")
-        } else {
-            setEditing(!editing)
-        }
-    }
+    // function handleSaveOrEdit() {
+    //     if (editing) {
+    //         console.log("Update the information about user")
+    //     } else {
+    //         setEditing(!editing)
+    //     }
+    // }
 
-    function handleCancel() {
-        console.log("Handle the information update cancellation")
-    }
+    // function handleCancel() {
+    //     console.log("Handle the information update cancellation")
+    // }
 
     // const { userid } = useParams()
 
@@ -101,7 +101,7 @@ export default function ProfilePage() {
                             className='outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
                         ></input>
                     </div>
-                    <div className='flex justify-end gap-10'>
+                    {/* <div className='flex justify-end gap-10'>
                         <button onClick={handleSaveOrEdit}
                             className='px-10 py-1 bg-red-500 hover:bg-red-600 border border-teal-950'
                         >{editing ? "Save" : "Edit"}
@@ -109,7 +109,7 @@ export default function ProfilePage() {
                         <button onClick={handleCancel}
                             className='px-10 py-1 bg-neutral-500 hover:bg-neutral-600 border border-teal-950'
                         >Cancel</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
