@@ -4,11 +4,6 @@ import { getGlobalUser } from "../../userManagement";
 import { Navigate } from "react-router-dom";
 
 export default function BorrowListPage() {
-    if (!getGlobalUser()) {
-        return (
-            <Navigate to='/login' replace />
-        )
-    }
 
     const [books, setBooks] = useState<{
         title: string;
