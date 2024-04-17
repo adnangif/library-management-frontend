@@ -51,6 +51,7 @@ export default function CategorySubPage() {
                             <div>By {book.author}</div>
                             <div>{book.edition}</div>
                             <div>{book.publication_year}</div>
+                            <div>Available Copies: {book.available_books}</div>
                         </div>
                     ))
                 }
