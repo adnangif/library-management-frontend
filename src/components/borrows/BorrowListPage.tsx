@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import BasePage from "../BasePage";
+import { getGlobalUser } from "../../userManagement";
+import { Navigate } from "react-router-dom";
 
 export default function BorrowListPage() {
+    if (!getGlobalUser()) {
+        return (
+            <Navigate to='/login' replace />
+        )
+    }
 
     const [books, setBooks] = useState<{
         title: string;
@@ -43,7 +50,7 @@ export default function BorrowListPage() {
 
             <div className="flex-grow w-full flex flex-col gap-2">
                 {
-                    books.map((book,index) => (
+                    books.map((book, index) => (
                         <div key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-2 m-1">
                             <div>{book.title}</div>
                             <div>By {book.author}</div>

@@ -45,13 +45,8 @@ export default function LoginPage() {
             return response.json()
         })
         .then(data =>{
-            if(data['info']){
-                const info = JSON.parse(data['info'])
+            if(data['token']){
                 const jwt_token = data['token']
-                console.log(info)
-                // console.log(jwt_token)
-
-                // setGlobalUser(info[0])
                 setGlobalUser(jwt_token)
                 console.log(getGlobalUser())
 

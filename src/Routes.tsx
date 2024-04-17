@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import BookDetailPage from "./components/book/BookDetailPage";
 import BorrowListPage from "./components/borrows/BorrowListPage";
@@ -13,6 +13,10 @@ import SearchPage from "./components/search/SearchPage";
 import SignupPage from "./components/signup/SignupPage";
 
 const Router = createBrowserRouter([
+    {
+        path: '',
+        element:<Navigate to='/home/' replace />,
+    },
     {
         path: 'login',
         element: <LoginPage />
