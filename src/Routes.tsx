@@ -57,14 +57,14 @@ const Router = createBrowserRouter([
         element: <SearchPage />
     },
     {
-        path: 'category',
+        path: 'categories',
         children: [
             {
                 path: '',
                 element: <CategoryMainPage />,
             },
             {
-                path: ':catid',
+                path: ':catname',
                 element: <CategorySubPage />
             }
         ]

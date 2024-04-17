@@ -2,6 +2,7 @@ import BasePage from "../BasePage";
 import { useQuery } from "@tanstack/react-query";
 import FetchCategoryList from "../../apiCalls/FetchCategoryList";
 import { getGlobalUser } from "../../userManagement";
+import { Link } from "react-router-dom";
 
 export default function CategoryMainPage() {
 
@@ -31,7 +32,7 @@ export default function CategoryMainPage() {
             <div className="grid sm:grid-cols-3 md:grid-cols-5 sm:grid-rows-5 gap-5">
                 {
                     data.map((item: any, index: any) => (
-                        <button key={index} className="p-2 border rounded-lg hover:bg-neutral-600">{item.category}</button>
+                        <Link to={`/categories/${item.category}`} key={index} className="p-4 border rounded-lg hover:bg-neutral-600">{item.category}</Link>
                     ))
                 }
             </div>

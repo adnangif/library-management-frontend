@@ -30,7 +30,7 @@ export default function SideNavBar() {
         nav('/search')
     }
     function handleCategory(){
-        nav('/category')
+        nav('/categories')
     }
     function handleOrders(){
         nav('/orders')
