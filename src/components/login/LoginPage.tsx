@@ -6,7 +6,7 @@ export default function LoginPage() {
 
     if(isAuthenticated() === true){
         return (
-            <Navigate to='/home' />
+            <Navigate to='/home' replace />
         )
     }
 
