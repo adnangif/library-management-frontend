@@ -5,8 +5,9 @@ import { CgFileDocument } from "react-icons/cg";
 import { CiLogout } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { clearGlobalUser } from "../../userManagement";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
+import NavBarBtn from "./NavBarBtn";
 // import { useRef } from "react";
 
 
@@ -16,65 +17,67 @@ export default function SideNavBar() {
 
     const nav = useNavigate()
 
-    function handleLogout(){
+    function handleLogout() {
         clearGlobalUser()
         nav('/login')
     }
 
-    function handleProfile(){
+    function handleProfile() {
         nav('/profile')
     }
-    function handleHome(){
+    function handleHome() {
         nav('/home')
     }
-    function handleSearch(){
+    function handleSearch() {
         nav('/search')
     }
-    function handleCategory(){
+    function handleCategory() {
         nav('/categories')
     }
-    function handleOrders(){
+    function handleOrders() {
         nav('/orders')
     }
 
-    function handleCart(){
+    function handleCart() {
         nav('/cart/')
     }
     return (
         <div className="flex w-48  bg-teal-800 text-teal-100 font-semibold ps-8 flex-col h-full justify-center gap-10 items-start">
-            <button onClick={handleProfile} className="flex cursor-pointer hover:bg-teal-900 w-full py-2 p-2  items-center gap-5">
+
+            <NavBarBtn handlerFunction={handleProfile}>
                 <CgProfile size={25} />
                 <div>Profile</div>
-            </button>
+            </NavBarBtn>
 
-            <button onClick={handleHome} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
+
+            <NavBarBtn handlerFunction={handleHome}>
                 <CiHome size={25} />
                 <div>Home</div>
-            </button>
+            </NavBarBtn>
 
-            <button onClick={handleSearch} className="flex cursor-pointer hover:bg-teal-900 w-full p-2   items-center gap-5">
+            <NavBarBtn handlerFunction={handleSearch} >
                 <CiSearch size={25} />
                 <div>Search</div>
-            </button>
+            </NavBarBtn>
 
-            <button onClick={handleCategory} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
+            <NavBarBtn handlerFunction={handleCategory} >
                 <TbCategory2 size={25} />
                 <div>Categories</div>
-            </button>
+            </NavBarBtn>
 
-            <button onClick={handleOrders} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
+            <NavBarBtn handlerFunction={handleOrders} >
                 <CgFileDocument size={25} />
                 <div>Orders</div>
-            </button>
-            <button onClick={handleCart} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
+            </NavBarBtn>
+            <NavBarBtn handlerFunction={handleCart} >
                 <FaCartShopping size={25} />
                 <div>Cart</div>
-            </button>
+            </NavBarBtn>
 
-            <button onClick={handleLogout} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
+            <NavBarBtn handlerFunction={handleLogout} >
                 <CiLogout size={25} />
                 <div>Logout</div>
-            </button>
+            </NavBarBtn>
 
         </div>
     )
