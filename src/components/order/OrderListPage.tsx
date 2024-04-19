@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import BasePage from "../BasePage";
 import { useQuery } from "@tanstack/react-query";
 import FetchOrderList from "../../apiCalls/FetchOrderList";
@@ -31,39 +30,6 @@ export default function OrderListPage() {
         </BasePage>
     )
 
-    // const [orders, setOrders] = useState<{
-    //     orderid: string,
-    //     issue_time: string,
-    //     last_collection_time: string
-    // }[]>([])
-
-    // useEffect(() => {
-    //     setOrders([
-    //         {
-    //             orderid: 'asdf',
-    //             issue_time: '3/3/23',
-    //             last_collection_time: '10/3/23',
-    //         },
-    //         {
-    //             orderid: 'asdf',
-    //             issue_time: '3/3/23',
-    //             last_collection_time: '10/3/23',
-    //         },
-    //         {
-    //             orderid: 'asdf',
-    //             issue_time: '3/3/23',
-    //             last_collection_time: '10/3/23',
-    //         },
-    //         {
-    //             orderid: 'asdf',
-    //             issue_time: '3/3/23',
-    //             last_collection_time: '10/3/23',
-    //         },
-    //     ])
-
-
-    // }, [])
-
 
 
     return (
@@ -72,7 +38,7 @@ export default function OrderListPage() {
             <div className="grid gap-5 w-full">
                 {
                     data.map((order: any, index: any) => (
-                        <Link to={`/orders/${order.order_id}`} key={index} className="grid lg:grid-cols-2 gap-2 place-content-start sm:grid-cols-2 w-full border hover:bg-neutral-700  rounded-lg p-2">
+                        <Link state={order} to={`/orders/${order.order_id}`} key={index} className="grid lg:grid-cols-2 gap-2 place-content-start sm:grid-cols-2 w-full border hover:bg-neutral-700  rounded-lg p-2">
                             <div className="flex gap-3">
                                 <div className="font-thin">OrderID</div>
                                 <div className="font-bold">{order.order_id}</div>
