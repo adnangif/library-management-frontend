@@ -3,6 +3,8 @@ import { CartItem, clearCart, getCart } from "../../cartManagement";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import CreateOrder from "../../apiCalls/CreateOrder";
+import { getGlobalUser } from "../../userManagement";
 
 export default function Cart() {
     const [books, setBooks] = useState<CartItem[]>([])
@@ -12,13 +14,17 @@ export default function Cart() {
         setBooks(getCart())
     }
 
-    function handleOrder() {
+    async function handleOrder() {
         if (books.length === 0) {
             toast.error("Empty Cart. Add books to order.")
         } else {
-            const book_ids = books.map(item => item.book_id)
+            const book_ids = books.map(item => String(item.book_id))
+            const response = await CreateOrder(getGlobalUser(),book_ids)
 
-            console.log(book_ids)
+
+            toast.info(response.message)
+
+            
         }
 
     }
