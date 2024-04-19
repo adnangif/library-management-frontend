@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BasePage from "../BasePage";
 import { useQuery } from "@tanstack/react-query";
 import FetchCategoryBooks from "../../apiCalls/FetchCategoryBooks";
@@ -46,13 +46,13 @@ export default function CategorySubPage() {
             <div className="flex-grow w-full flex flex-col gap-2">
                 {
                     data.map((book: any, index: any) => (
-                        <div key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
+                        <Link to={`/books/${book.info_id}`}  key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
                             <div>{book.title}</div>
                             <div>By {book.author}</div>
                             <div>{book.edition}</div>
                             <div>{book.publication_year}</div>
                             <div>Available Copies: {book.available_books}</div>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>

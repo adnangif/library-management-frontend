@@ -8,48 +8,18 @@ import { getGlobalUser } from '../../userManagement';
 
 export default function BookDetailPage() {
 
-
-
-    // const [title, setTitle] = useState('')
-    // const [author, setAuthor] = useState('')
-    // const [description, setDescription] = useState('')
-    // const [pyear, setPyear] = useState('')
-    // const [edition, setEdition] = useState('')
-    // const [availablity, setAvailability] = useState("sdfas")
-
-
-    // useEffect(() => {
-    //     const book1 = {
-    //         title: "Introduction to algorithm",
-    //         author: "Dr. Somres Bosu",
-    //         description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    //         provident dolorum id tempora praesentium iusto fuga, magnam cumque reprehenderit.`,
-    //         pyear: '2020',
-    //         edition: '6th',
-    //         availablity: 'Available',
-    //     }
-
-    //     setTitle(book1.title)
-    //     setAuthor(book1.author)
-    //     setDescription(book1.description)
-    //     setPyear(book1.pyear)
-    //     setEdition(book1.edition)
-    //     setAvailability(book1.availablity)
-
-    // }, [])
-
     function handleOrder() {
         console.log("order handling happens here")
     }
 
 
 
-    const { bookid } = useParams()
+    const { infoid } = useParams()
 
 
     const { isPending, error, data } = useQuery({
-        queryKey: ["bookDetails", bookid],
-        queryFn: async () => await FetchBookDetails(getGlobalUser(), bookid)
+        queryKey: ["bookDetails", infoid],
+        queryFn: async () => await FetchBookDetails(getGlobalUser(), infoid)
     })
 
 
@@ -82,8 +52,8 @@ export default function BookDetailPage() {
                         <div className='font-bold tex-lg'>{data.author}</div>
                     </div>
                     <div className='flex flex-col'>
-                        <div className='text-sm text-neutral-400'>Availablity</div>
-                        <div className='font-bold text-lg'>{data.availablity}</div>
+                        <div className='text-sm text-neutral-400'>Availability</div>
+                        <div className='font-bold text-lg'>{data.is_available ? "Available" : "Not Available"}</div>
                     </div>
                 </div>
                 <div className='flex flex-col gap-5'>

@@ -40,14 +40,14 @@ const Router = createBrowserRouter([
         ]
     },
     {
-        path: 'book',
+        path: 'books',
         children: [
             {
                 path: '',
                 element: <ErrorPage />
             },
             {
-                path: ':bookid',
+                path: ':infoid',
                 element: <BookDetailPage />
             },
         ]
