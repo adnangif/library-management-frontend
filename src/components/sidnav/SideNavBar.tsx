@@ -6,6 +6,7 @@ import { CiLogout } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { clearGlobalUser } from "../../userManagement";
 import {useNavigate } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
 // import { useRef } from "react";
 
 
@@ -35,6 +36,10 @@ export default function SideNavBar() {
     function handleOrders(){
         nav('/orders')
     }
+
+    function handleCart(){
+        nav('/cart/')
+    }
     return (
         <div className="flex w-48  bg-teal-800 text-teal-100 font-semibold ps-8 flex-col h-full justify-center gap-10 items-start">
             <button onClick={handleProfile} className="flex cursor-pointer hover:bg-teal-900 w-full py-2 p-2  items-center gap-5">
@@ -60,6 +65,10 @@ export default function SideNavBar() {
             <button onClick={handleOrders} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
                 <CgFileDocument size={25} />
                 <div>Orders</div>
+            </button>
+            <button onClick={handleCart} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
+                <FaCartShopping size={25} />
+                <div>Cart</div>
             </button>
 
             <button onClick={handleLogout} className="flex cursor-pointer hover:bg-teal-900 w-full p-2  items-center gap-5">
