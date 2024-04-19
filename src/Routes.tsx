@@ -11,6 +11,7 @@ import OrderListPage from "./components/order/OrderListPage";
 import ProfilePage from "./components/profile/ProfilePage";
 import SearchPage from "./components/search/SearchPage";
 import SignupPage from "./components/signup/SignupPage";
+import Cart from "./components/Cart/Cart";
 
 const Router = createBrowserRouter([
     {
@@ -81,6 +82,11 @@ const Router = createBrowserRouter([
                 element: <OrderDetailPage />
             }
         ]
+    },
+    {
+        path: 'cart',
+        element:<Cart/>
+        
     },
 ])
 

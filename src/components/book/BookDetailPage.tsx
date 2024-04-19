@@ -1,15 +1,30 @@
 // import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import BasePage from '../BasePage';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import FetchBookDetails from '../../apiCalls/FetchBookDetails';
 import { getGlobalUser } from '../../userManagement';
+import { addToCart, exists,CartItem } from '../../cartManagement';
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function BookDetailPage() {
 
     function handleOrder() {
-        console.log("order handling happens here")
+        const item:CartItem = {
+            book_id: data.book_id,
+            title: data.title,
+            author: data.author,
+            info_id: data.info_id,
+        }
+        if(exists(item) == false){
+            addToCart(item)
+            toast.success("Successfully Added this book to Cart")
+        }else{
+            toast.error("This book was already added to the Cart")
+        }
+
+
     }
 
 
@@ -37,6 +52,7 @@ export default function BookDetailPage() {
 
     return (
         <BasePage>
+            <ToastContainer />
             <div className='flex justify-between'>
                 <div className='min-w-48 h-48 bg-blue-300'></div>
                 <div className='p-10 pt-0 flex-grow overflow-y-hidden'>{data.description}</div>
