@@ -6,7 +6,6 @@ import FetchBookDetails from '../../apiCalls/FetchBookDetails';
 import { getGlobalUser } from '../../userManagement';
 import { addToCart, exists,CartItem } from '../../cartManagement';
 import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
 
 export default function BookDetailPage() {
 
