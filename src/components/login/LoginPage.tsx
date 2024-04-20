@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { getGlobalUser, isAuthenticated, setGlobalUser } from "../../userManagement";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
 
-    if(isAuthenticated() === true){
+    if (isAuthenticated() === true) {
         return (
             <Navigate to='/home' replace />
         )
@@ -24,38 +24,38 @@ export default function LoginPage() {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        fetch('http://localhost:8000/api/login/',{
-            method:'POST',
-            mode:'cors',
-            headers:{
+        fetch('http://localhost:8000/api/login/', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
                 'Content-Type': 'application/json',
             },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 'iid': UserID,
                 'password': password,
             })
-        })  
-        .then(response =>{
-            if(response.status == 202) {
-                console.log("Login complete")
-            }
-            else if(response.status == 400){
-                setError(true)
-            }
-            return response.json()
         })
-        .then(data =>{
-            if(data['token']){
-                const jwt_token = data['token']
-                setGlobalUser(jwt_token)
-                console.log(getGlobalUser())
+            .then(response => {
+                if (response.status == 202) {
+                    console.log("Login complete")
+                }
+                else if (response.status == 400) {
+                    setError(true)
+                }
+                return response.json()
+            })
+            .then(data => {
+                if (data['token']) {
+                    const jwt_token = data['token']
+                    setGlobalUser(jwt_token)
+                    console.log(getGlobalUser())
 
-                setTimeout(()=>{
-                    nav('/home')
+                    setTimeout(() => {
+                        nav('/home')
 
-                },1000)
-            }
-        })
+                    }, 1000)
+                }
+            })
     }
 
     return (
@@ -76,14 +76,18 @@ export default function LoginPage() {
                 </div>
 
                 {error ?
-                <div className="text-center text-red-400">Wrong institution id or Password</div>
-                :
-                <div></div>
+                    <div className="text-center text-red-400">Wrong institution id or Password</div>
+                    :
+                    <div></div>
                 }
                 <div className="flex justify-end">
                     <input type="submit"
                         className="bg-neutral-600 rounded-2xl px-10 py-2 cursor-pointer hover:bg-neutral-700"
                         value={'Login'} />
+                </div>
+                <div>
+                    <Link to="/signup" className="text-blue-200 hover:text-blue-400">Create New Account</Link>
+
                 </div>
             </form>
 
