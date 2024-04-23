@@ -13,6 +13,7 @@ export function clearGlobalUser(){
 
 export function setGlobalUser(value:string){
     localStorage.setItem('user',value)
+    clearLibrarianToken()
 }
 
 
@@ -24,6 +25,7 @@ export function getLlibrarianToken(){
 
 export function setLibrarianToken(value:string){
     localStorage.setItem('librarian',value)
+    clearGlobalUser()
 }
 
 export function clearLibrarianToken(){

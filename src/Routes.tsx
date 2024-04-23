@@ -12,11 +12,15 @@ import ProfilePage from "./components/profile/ProfilePage";
 import SearchPage from "./components/search/SearchPage";
 import SignupPage from "./components/signup/SignupPage";
 import Cart from "./components/Cart/Cart";
+import LibrarianLogin from "./components/librarian/login/LibrarianLogin";
+import DeliverBookPage from "./components/librarian/deliverBook/DeliverBookPage";
+import ReceiveBookPage from "./components/librarian/receiveBook/ReceiveBookPage";
+import LibrarianSignUp from "./components/librarian/signup/LibrarianSignUp";
 
 const Router = createBrowserRouter([
     {
         path: '',
-        element:<Navigate to='/home/' replace />,
+        element: <Navigate to='/home/' replace />,
     },
     {
         path: 'login',
@@ -85,9 +89,38 @@ const Router = createBrowserRouter([
     },
     {
         path: 'cart',
-        element:<Cart/>
-        
+        element: <Cart />
+
     },
+
+
+    {
+        path: 'librarian',
+        children:[
+            {
+                path:"",
+                element: <Navigate to= 'deliver' />
+
+            },
+            {
+                path:'login',
+                element: <LibrarianLogin />
+            },
+            {
+                path:'signup',
+                element: <LibrarianSignUp />
+            },
+            {
+                path:'deliver',
+                element:<DeliverBookPage/>
+
+            },
+            {
+                path:'receive',
+                element:<ReceiveBookPage/>
+            }
+        ]
+    }
 ])
 
 export default Router
