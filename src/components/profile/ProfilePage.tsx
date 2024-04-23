@@ -29,10 +29,13 @@ export default function ProfilePage() {
 
     return (
         <BasePage>
-            <InputItem title='First Name' data={data.first_name} />
-            <InputItem title='Last Name' data={data.last_name} />
-            <InputItem title='Institution ID Number' data={data.institution_id_number} />
-            <InputItem title='email' data={data.email} />
+            <div className='w-full flex flex-col justify-center items-center'>
+
+                <InputItem title='First Name' data={data.first_name} />
+                <InputItem title='Last Name' data={data.last_name} />
+                <InputItem title='Institution ID Number' data={data.institution_id_number} />
+                <InputItem title='email' data={data.email} />
+            </div>
         </BasePage>
 
     )
