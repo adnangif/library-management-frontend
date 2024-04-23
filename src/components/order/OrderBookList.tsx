@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getGlobalUser } from "../../userManagement";
 import FetchOrderRelatedBooks from "../../apiCalls/FetchOrderRelatedBooks";
+import { Link } from "react-router-dom";
 
 interface propTypes {
     order_id: string;
@@ -42,11 +43,12 @@ export default function OrderBookList({ order_id, trigger }: propTypes) {
 
                 {
                     data.map((book: any, index: any) => (
-                        <div key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold grid lg:grid-cols-3 sm:grid-cols-2  gap-2 p-1 m-1">
+                        <Link to={`/books/${book.info_id}`} key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold grid lg:grid-cols-2 sm:grid-cols-2  gap-2 p-1 m-1">
                             <div>{book.title}</div>
+                            <div>Book ID: {book.book_id}</div>
                             <div>By {book.author}</div>
                             <div>{book.edition}</div>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>

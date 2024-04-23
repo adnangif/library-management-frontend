@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import FetchSearchBookList from "../../apiCalls/FetchSearchBookList"
 import { getGlobalUser } from "../../userManagement"
+import { Link } from "react-router-dom"
 
 
 export default function ({ q }: { q: string }) {
@@ -40,12 +41,12 @@ export default function ({ q }: { q: string }) {
 
                 {
                     data?.map((book: any, index: any) => (
-                        <div key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
+                        <Link to={`/books/${book.info_id}`} key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
                             <div>{book.title}</div>
                             <div>By {book.author}</div>
                             <div>{book.edition} Edition</div>
                             <div>{book.availability}</div>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>
