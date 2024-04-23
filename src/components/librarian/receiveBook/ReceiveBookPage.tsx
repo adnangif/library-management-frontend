@@ -1,9 +1,15 @@
 import LibrarianBase from "../LibrarianBase";
+import { ToastContainer } from "react-toastify";
+import ReceiveBookList from "./ReceiveBookList";
 
-export default function(){
+export default function () {
+
     return (
         <LibrarianBase>
-            <div>hello there</div>
+            <ToastContainer />
+            <div className="font-bold text-lg">Receive Books</div>
+            <ReceiveBookList />
+
         </LibrarianBase>
     )
 }

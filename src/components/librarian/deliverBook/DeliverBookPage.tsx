@@ -7,7 +7,7 @@ export default function () {
     return (
         <LibrarianBase>
             <ToastContainer />
-            <div className="font-bold text-lg">Ordered Books</div>
+            <div className="font-bold text-lg">Deliver Books</div>
             <DeliverBookList />
 
 
