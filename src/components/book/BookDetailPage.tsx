@@ -4,22 +4,22 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import FetchBookDetails from '../../apiCalls/FetchBookDetails';
 import { getGlobalUser } from '../../userManagement';
-import { addToCart, exists,CartItem } from '../../cartManagement';
+import { addToCart, exists, CartItem } from '../../cartManagement';
 import { ToastContainer, toast } from 'react-toastify';
 
 export default function BookDetailPage() {
 
     function handleOrder() {
-        const item:CartItem = {
+        const item: CartItem = {
             book_id: data.book_id,
             title: data.title,
             author: data.author,
             info_id: data.info_id,
         }
-        if(exists(item) == false){
+        if (exists(item) == false) {
             addToCart(item)
             toast.success("Successfully Added this book to Cart")
-        }else{
+        } else {
             toast.error("This book was already added to the Cart")
         }
 
@@ -85,7 +85,7 @@ export default function BookDetailPage() {
             <div className='flex justify-center'>
                 <button onClick={handleOrder}
                     className='px-10 py-1 bg-teal-700 hover:bg-teal-800 border border-teal-950'
-                >Place Order</button>
+                >Add To Cart</button>
             </div>
         </BasePage>
     )
