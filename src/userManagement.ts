@@ -14,3 +14,18 @@ export function clearGlobalUser(){
 export function setGlobalUser(value:string){
     localStorage.setItem('user',value)
 }
+
+
+
+export function getLlibrarianToken(){
+    return localStorage.getItem('librarian')
+}
+
+
+export function setLibrarianToken(value:string){
+    localStorage.setItem('librarian',value)
+}
+
+export function clearLibrarianToken(){
+    localStorage.removeItem('librarian')
+}
