@@ -56,20 +56,20 @@ export default function() {
     }
 
     return (
-        <div className="flex flex-col text-neutral-200 justify-center items-center h-screen w-screen overflow-hidden bg-neutral-100">
+        <div className="flex flex-col text-green-800 font-bold uppercase  justify-center items-center h-screen w-screen overflow-hidden bg-green-50">
             {
                 message ?
                 
-                    <div className="bg-neutral-800 rounded-lg p-10 md:w-1/2 flex flex-col gap-4">
+                    <div className=" rounded-lg p-10 md:w-1/2 flex flex-col gap-4">
                         <div>{message}</div>
                     </div>
                     :
-                    <form onSubmit={handleSubmit} className="bg-neutral-800 rounded-lg p-10 md:w-1/2 flex flex-col gap-4">
+                    <form onSubmit={handleSubmit} className=" rounded-lg p-10 md:w-1/2 flex flex-col gap-4 border border-2 border-green-400 bg-white shadow-lg">
 
                         <div className="flex justify-between gap-10 items-center">
                             <label htmlFor="institution_id_num">Institution ID Number</label>
                             <input
-                                className=' rounded-lg outline-none border focus:bg-neutral-600 bg-neutral-800 p-2 remove-arrow'
+                                className=' rounded-lg outline-none border  p-2 remove-arrow focus:border-green-400'
                                 onChange={e => setiid(e.target.value)} id="institution_id_num" type="number" />
                         </div>
 
@@ -77,41 +77,41 @@ export default function() {
                         <div className="flex justify-between gap-10 items-center">
                             <label htmlFor="passwd">Password</label>
                             <input minLength={4} id="passwd" name="passwd" placeholder="*******" onChange={e => setPassword(e.target.value)}
-                                className='rounded-lg outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                                className='rounded-lg outline-none border p-2 focus:border-green-400'
                                 type="password" />
                         </div>
 
                         <div className="flex justify-between gap-10 items-center">
                             <label htmlFor="fname">First Name</label>
                             <input
-                                className='rounded-lg outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                                className='rounded-lg outline-none border  p-2 focus:border-green-400'
                                 onChange={e => setFname(e.target.value)} id="fname" type="text" />
                         </div>
 
                         <div className="flex justify-between gap-10 items-center">
                             <label htmlFor="lname">Last Name</label>
                             <input
-                                className='rounded-lg outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                                className='rounded-lg outline-none border p-2 focus:border-green-400'
                                 id='lname' onChange={e => setLname(e.target.value)} type="text" />
                         </div>
 
                         <div className="flex justify-between gap-10 items-center">
                             <label htmlFor="email" >Email Address</label>
                             <input
-                                className='rounded-lg outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                                className='rounded-lg outline-none border  p-2 focus:border-green-400'
                                 id="email" onChange={e => setEmail(e.target.value)} type="email" />
                         </div>
 
                         <div className="flex justify-between gap-10 items-center">
                             <label htmlFor='phone'>Phone Number</label>
                             <input
-                                className='rounded-lg remove-arrow outline-none border focus:bg-neutral-600 bg-neutral-800 p-2'
+                                className='rounded-lg remove-arrow outline-none border  p-2 focus:border-green-400'
                                 id="phone" onChange={e => setPhone(e.target.value)} type="number" />
                         </div>
 
 
                         <div className="flex justify-end pt-8">
-                            <input type="submit" className="bg-neutral-600 rounded-2xl px-10 py-2 cursor-pointer hover:bg-neutral-700" value='Signup' />
+                            <input type="submit" className=" rounded-lg px-10 py-2 cursor-pointer bg-green-400 text-white font-bold uppercase hover:bg-green-300" value='Signup' />
                         </div>
 
                         {
