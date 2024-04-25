@@ -36,7 +36,6 @@ export default function () {
 
     return (
         <div className="flex-grow w-full flex flex-col gap-2">
-            data?.map &&(
             {
                 data?.map((book: any, index: any) => (
                     <div key={index} className=" border border-neutral-200 rounded-lg font-semibold grid  gap-2 p-1 m-1">
@@ -51,7 +50,7 @@ export default function () {
                         </div>
                     </div>
                 ))
-            })
+            }
         </div>
     )
 }
