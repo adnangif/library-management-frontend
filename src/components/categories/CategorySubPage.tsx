@@ -43,14 +43,14 @@ export default function CategorySubPage() {
                 <div className="text-lg font-bold">{catname}</div>
             </div>
 
-            <div className="flex-grow w-full flex flex-col gap-2">
+            <div className="flex-grow w-full flex flex-col gap-2 font-semibold">
                 {
                     data.map((book: any, index: any) => (
                         <Link to={`/books/${book.info_id}`}  key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
-                            <div>{book.title}</div>
+                            <div>Title: {book.title}</div>
                             <div>By {book.author}</div>
-                            <div>{book.edition}</div>
-                            <div>{book.publication_year}</div>
+                            <div>Edition: {book.edition}</div>
+                            <div>Publication Year: {book.publication_year}</div>
                             {/* <div>Available Copies: {book.available_books}</div> */}
                         </Link>
                     ))

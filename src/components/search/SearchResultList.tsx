@@ -27,7 +27,7 @@ export default function ({ q }: { q: string }) {
 
     if (isSuccess) {
         return (
-            <div className="flex-grow w-full flex flex-col gap-2">
+            <div className="flex-grow w-full flex flex-col gap-2 font-semibold">
                 {
                     (data?.length == 0) && (
                         q.trim().length == 0 ? (
@@ -42,10 +42,9 @@ export default function ({ q }: { q: string }) {
                 {
                     data?.map((book: any, index: any) => (
                         <Link to={`/books/${book.info_id}`} key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-1 m-1">
-                            <div>{book.title}</div>
-                            <div>By {book.author}</div>
-                            <div>{book.edition} Edition</div>
-                            <div>{book.availability}</div>
+                            <div>TITLE: {book.title}</div>
+                            <div>BY {book.author}</div>
+                            <div>EDITION: {book.edition}</div>
                         </Link>
                     ))
                 }
