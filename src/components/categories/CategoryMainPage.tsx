@@ -29,7 +29,7 @@ export default function CategoryMainPage() {
     return (
         <BasePage>
             <div className="w-full text-center font-bold text-lg">Categories</div>
-            <div className="grid sm:grid-cols-3 md:grid-cols-5 sm:grid-rows-5 gap-5">
+            <div className="grid sm:grid-cols-3  sm:grid-rows-5 gap-5">
                 {
                     data.map((item: any, index: any) => (
                         <Link to={`/categories/${item.category}`} key={index} className="p-4 border rounded-lg hover:bg-neutral-600">{item.category}</Link>
