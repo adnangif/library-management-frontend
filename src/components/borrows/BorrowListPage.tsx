@@ -81,10 +81,10 @@ export default function BorrowListPage() {
                 {
                     data?.map((book: any, index: any) => (
                         <Link to={`/books/${book.info_id}`} key={index} className="cursor-pointer hover:bg-neutral-700 border border-neutral-200 rounded-lg font-semibold flex flex-col  gap-2 p-2 m-1">
-                            <div>Book ID: {book.book_id}</div>
+                            <div>BOOK ID: {book.book_id}</div>
                             <div>{book.title}</div>
-                            <div>By {book.author}</div>
-                            <div>{book.edition} Edition</div>
+                            <div>BY {book.author}</div>
+                            <div>EDITION: {book.edition}</div>
                         </Link>
                     ))
                 }
